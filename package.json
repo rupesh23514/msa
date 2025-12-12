@@ -1,7 +1,8 @@
 {
   "name": "movie-streaming-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Full-stack movie streaming application",
+  "main": "Backend/index.js",
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
     "start": "cd Backend && npm install && npm start",
