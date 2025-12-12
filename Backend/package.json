@@ -9,7 +9,6 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
@@ -18,5 +17,8 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.0.1",
     "nodemon": "^3.1.11"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
 }

@@ -27,20 +27,20 @@ app.get('/api/health', (req, res) => {
     res.json({ message: 'Server is running successfully' });
 });
 
-// Catch all handler: send back React's index.html file for any non-API routes
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
-
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ message: 'Something went wrong!' });
 });
 
-// 404 handler
-app.use((req, res) => {
-    res.status(404).json({ message: 'Route not found' });
+// Serve React app - catch all non-API routes
+app.use((req, res, next) => {
+    // If request doesn't start with /api, serve React app
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+    } else {
+        next();
+    }
 });
 
 app.listen(PORT, () => {
